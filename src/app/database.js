@@ -1,8 +1,7 @@
 import mongoose from "mongoose";
 
-export const createConnection = () => {
+export const createConnection = async () => {
     const { DB_URI } = process.env;
-    // const MONGO_URI = "mongodb://localhost/graphql";
     const dbOptions = {
         useNewUrlParser: true,
         useUnifiedTopology: true,
@@ -14,8 +13,11 @@ export const createConnection = () => {
 
     const connection = mongoose.connection;
 
-    connection.once('open', () =>
-        console.log("MongoDB connection stablished"));
+    connection.once('open', () => {
+        if (process.env.ENV !== 'test')
+            console.log("MongoDB connection stablished")
+    });
+
 
     connection.on('error', err => {
         console.log(err);
@@ -24,3 +26,22 @@ export const createConnection = () => {
 
     return connection;
 }
+
+export const cleanDataBase = async () => {
+    const collections = mongoose.connection.collections;
+    for (const key in collections) {
+        const collection = collections[key];
+        await collection.deleteMany();
+    }
+}
+
+export const closeConnection = async () => {
+    // await mongoose.connection.dropDatabase();
+    await mongoose.connection.close();
+}
+
+const { ENV } = process.env;
+if (ENV !== 'test')
+    createConnection();
+
+
