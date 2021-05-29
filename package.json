@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "babel src -d dist --source-maps",
-    "start": "env-cmd -f ./src/config/local.env nodemon src/bin/www.js --exec babel-node",
+    "dev": "env-cmd -f ./src/config/local.env nodemon src/bin/www.js --exec babel-node",
+    "start": "nodemon src/bin/www.js --exec babel-node",
     "serve": "node dist/index.js",
     "clean": "rimraf dist",
     "test": "jest"
