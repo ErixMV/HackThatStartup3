@@ -1,4 +1,4 @@
-// import "regenerator-runtime/runtime.js";
+import "regenerator-runtime/runtime.js";
 import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
