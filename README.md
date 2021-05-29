@@ -86,6 +86,11 @@ Start test environment
 npm test
 ```
 
+Force heroku to run npm build before the start
+```sh
+npm run heroku-postbuild
+```
+
 ## Models routing
 All the routes are defined following REST convention.
 ### User
