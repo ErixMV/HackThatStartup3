@@ -1,8 +1,7 @@
 const typeDefs = `
     type Query {
-        ping: String!
-        ding: String!
-        users: [User]
+        users: [User],
+        repositories: [Repository]
     }
 
     type Mutation {
@@ -10,7 +9,17 @@ const typeDefs = `
     }
 
     type User {
+        username: String!
+        password: String!
+        email: String!
+        repos: Int
+    }
+
+    type Repository {
         name: String
+        url: String
+        description: String
+        stack: [String]
     }
 
     input UserInput {

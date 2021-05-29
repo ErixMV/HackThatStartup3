@@ -1,9 +1,9 @@
-import User  from '../../api/user/model';
+import User from '../../api/user/model';
+import Repository from '../../api/repository/model';
 
 const Query = {
-    ping: () => 'Pong',
-    ding: () => 'Dong',
-    users: () => User.find({})
+    users: () => User.find({}),
+    repositories: () => Repository.find({})
 }
 
 export default Query;
