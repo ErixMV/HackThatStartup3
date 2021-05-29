@@ -9,7 +9,8 @@
     "start": "nodemon src/bin/www.js --exec babel-node",
     "serve": "node dist/index.js",
     "clean": "rimraf dist",
-    "test": "jest"
+    "test": "jest",
+    "heroku-postbuild": "npm run build"
   },
   "keywords": [],
   "author": "",
