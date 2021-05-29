@@ -2,6 +2,8 @@
 
 This is the solution for the individual challenge of the hackathon Hack That Startup v3.
 
+Deployed: [App](https://hackthatstartup3.herokuapp.com)
+
 ## Table of Contents
 
 * [Starting the Project](#starting-the-project)
